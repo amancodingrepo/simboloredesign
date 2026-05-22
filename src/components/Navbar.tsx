@@ -1,0 +1,65 @@
+import Link from "next/link";
+
+const navLinks = [
+  { label: "Home", href: "#" },
+  { label: "About Us", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Process", href: "#process" },
+  { label: "Pricing", href: "#pricing" },
+];
+
+export default function Navbar() {
+  return (
+    <header className="fixed top-4 left-0 w-full z-50 px-4 md:px-8">
+      <nav className="max-w-[1320px] mx-auto glass-nav rounded-full px-6 py-3 md:py-4 flex items-center justify-between shadow-sm">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-skyblue flex items-center justify-center text-white font-bold font-heading text-xl shadow-glow-primary">
+            C
+          </div>
+          <div className="hidden md:block leading-none">
+            <h1 className="font-heading font-bold text-dark text-lg">Creatify</h1>
+            <p className="text-[10px] text-soft font-medium uppercase tracking-wider">
+              Digital Marketing Agency
+            </p>
+          </div>
+        </div>
+
+        <ul className="hidden lg:flex items-center gap-8 font-medium text-sm text-dark">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="nav-link hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div>
+          <Link
+            href="#contact"
+            className="group flex items-center gap-2 bg-primary hover:bg-[#13ab6e] text-white px-6 py-2.5 rounded-full font-medium text-sm transition-all shadow-glow-primary hover:-translate-y-0.5"
+          >
+            Let&apos;s Talk
+            <svg
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
+        </div>
+      </nav>
+    </header>
+  );
+}
